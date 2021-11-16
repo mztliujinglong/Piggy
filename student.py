@@ -56,7 +56,7 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    def Michael(self):
+    def Square(self):
       self.fwd()
       time.sleep(2)
       self.stop()
@@ -109,6 +109,16 @@ class Piggy(PiggyParent):
         self.left()
         time.sleep(1)
         self.stop()
+
+
+    def stop(self):
+      While True:
+        slef.read_distance() < 100;
+        self.left(primary=30, counter=-40)
+        self.sleep(2)
+        self.stop
+      Else:
+        self.fwd()
 
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
