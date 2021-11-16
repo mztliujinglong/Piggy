@@ -113,11 +113,11 @@ class Piggy(PiggyParent):
 
     def stop(self):
       while True:
-        self.read_distance() < 100:
+        if self.read_distance() < 100:
           self.left(primary=30, counter=-40)
           self.sleep(2)
           self.stop
-      else:
+        else:
         self.fwd()
 
     def safe_to_dance(self):
