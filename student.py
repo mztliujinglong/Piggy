@@ -58,7 +58,7 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    def Square(self):
+    def square(self):
       self.fwd()
       time.sleep(2)
       self.stop()
