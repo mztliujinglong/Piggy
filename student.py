@@ -90,39 +90,39 @@ class Piggy(PiggyParent):
       self.stop()
       
     def round(self):
-      if (self.read_distance() < 300):
-        self.stop()
-        self.servo(1200)
-        left = self.read_distance()
-        self.servo(2000)
-        right = self.read_distance()
-          
-        if(left > right):
-          self.left(primary=30, counter=-40)
-          time.sleep(2)
+      wall_stoping_distance = 200
+      while True:
+        if (self.read_distance() < wall_stoping_distance):
           self.stop()
-          self.fwd()
-          time.sleep(2)
-          self.stop()
-          self.right(primary=30, counter=-40)
-          time.sleep(2)
-          self.stop()
+          self.servo(1200)
+          left = self.read_distance()
+          self.servo(2000)
+          right = self.read_distance()
+            
+          if(left > right):
+            self.left(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.right(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
 
-        if(right > left):
-          self.right(primary=30, counter=-40)
-          time.sleep(2)
-          self.stop()
-          self.fwd()
-          time.sleep(2)
-          self.stop()
-          self.left(primary=30, counter=-40)
-          time.sleep(2)
-          self.stop()
+          if(right > left):
+            self.right(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.left(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
           
-      else:
-        self.fwd()
-        time.sleep(0.5)
-        self.stop()
+        else:
+          self.fwd()
 
 
 
