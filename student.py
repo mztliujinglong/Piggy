@@ -42,7 +42,8 @@ class Piggy(PiggyParent):
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
                 "m": ("Michael Test", self.square),
-                "a": ("Stop at wall", self.stopatwall)
+                "a": ("Stop at wall", self.stopatwall),
+                "r": ("Go around the box", self.round)
                 }
                
         # loop and print the menu...
@@ -88,6 +89,40 @@ class Piggy(PiggyParent):
       time.sleep(2)
       self.stop()
       
+    def round(self):
+      if (self.read_distance() < 100):
+          self.stop()
+          self.servo(1200)
+          left = self.read_distance()
+          self.servo(2000)
+          right = self.read_distance()
+          
+          if(left > right):
+            self.left(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.right(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+
+          if(right > left):
+            self.right(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.left(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+          
+      else:
+        self.fwd()
+
+
 
     def dance(self):
         
@@ -123,6 +158,8 @@ class Piggy(PiggyParent):
 
         else:
           self.fwd()
+
+    def 
 
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
