@@ -97,27 +97,27 @@ class Piggy(PiggyParent):
         self.servo(2000)
         right = self.read_distance()
           
-      if(left > right):
-        self.left(primary=30, counter=-40)
-        time.sleep(2)
-        self.stop()
-        self.fwd()
-        time.sleep(2)
-        self.stop()
-        self.right(primary=30, counter=-40)
-        time.sleep(2)
-        self.stop()
+        if(left > right):
+          self.left(primary=30, counter=-40)
+          time.sleep(2)
+          self.stop()
+          self.fwd()
+          time.sleep(2)
+          self.stop()
+          self.right(primary=30, counter=-40)
+          time.sleep(2)
+          self.stop()
 
-      if(right > left):
-        self.right(primary=30, counter=-40)
-        time.sleep(2)
-        self.stop()
-        self.fwd()
-        time.sleep(2)
-        self.stop()
-        self.left(primary=30, counter=-40)
-        time.sleep(2)
-        self.stop()
+        if(right > left):
+          self.right(primary=30, counter=-40)
+          time.sleep(2)
+          self.stop()
+          self.fwd()
+          time.sleep(2)
+          self.stop()
+          self.left(primary=30, counter=-40)
+          time.sleep(2)
+          self.stop()
           
       else:
         self.fwd()
