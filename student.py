@@ -95,9 +95,11 @@ class Piggy(PiggyParent):
         if (self.read_distance() < wall_stoping_distance):
           self.stop()
           self.servo(1200)
-          left = self.read_distance()
-          self.servo(2000)
+          time.sleep(0.5)
           right = self.read_distance()
+          self.servo(2000)
+          time.sleep(0.5)
+          left = self.read_distance()
             
           if(left > right):
             self.left(primary=30, counter=-40)
@@ -122,6 +124,7 @@ class Piggy(PiggyParent):
             self.stop()
           
         else:
+          self.servo(self.MIDPOINT)
           self.fwd()
 
 
