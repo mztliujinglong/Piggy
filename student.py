@@ -44,6 +44,7 @@ class Piggy(PiggyParent):
                 "m": ("Michael Test", self.square),
                 "a": ("Stop at wall", self.stopatwall),
                 "r": ("Go around the box", self.round)
+                "z": ("Maze", self.maze)
                 }
                
         # loop and print the menu...
@@ -154,6 +155,7 @@ class Piggy(PiggyParent):
 
 
     def stopatwall(self):
+      wall_stoping_distance = 100
       while True:
         if self.read_distance() < 100:
           self.left(primary=30, counter=-40)
@@ -162,6 +164,43 @@ class Piggy(PiggyParent):
           self.fwd()
 
         else:
+          self.fwd()
+
+    def maze(self):
+      while True:
+        if (self.read_distance() < wall_stoping_distance):
+          self.stop()
+          self.servo(1200)
+          time.sleep(0.5)
+          right = self.read_distance()
+          self.servo(2000)
+          time.sleep(0.5)
+          left = self.read_distance()
+            
+          if(left > right):
+            self.left(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.right(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+
+          if(right > left):
+            self.right(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.left(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+          
+        else:
+          self.servo(self.MIDPOINT)
           self.fwd()
 
 
