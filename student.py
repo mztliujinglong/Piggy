@@ -43,8 +43,8 @@ class Piggy(PiggyParent):
                 "q": ("Quit", self.quit),
                 "m": ("Michael Test", self.square),
                 "a": ("Stop at wall", self.stopatwall),
-                "r": ("Go around the box", self.round)
-                "z": ("Maze", self.maze)
+                "r": ("Go around the box", self.round),
+                "b": ("Maze", self.maze)
                 }
                
         # loop and print the menu...
