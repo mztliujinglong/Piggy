@@ -197,29 +197,31 @@ class Piggy(PiggyParent):
 
     def detect(self):
       wall_stoping_distance = 150
-      if (self.read_distance() < wall_stoping_distance):
-        if(left > right):
-          self.left(primary=10, counter=-10)
-          time.sleep(2)
-          time.fwd()
-          self.right(primary=10, counter=-10)
-          time.sleep(2)
-          time.fwd()
+      while True:
+        if (self.read_distance() < wall_stoping_distance):
+          if(left > right):
+            self.left(primary=10, counter=-10)
+            time.sleep(2)
+            time.fwd()
+            self.right(primary=10, counter=-10)
+            time.sleep(2)
+            time.fwd()
+              
+          if(left > right):
+            self.right(primary=10, counter=-10)
+            time.sleep(2)
+            time.fwd()
+            self.left(primary=10, counter=-10)
+            time.sleep(2)
+            time.fwd()
             
-        if(left > right):
-          self.right(primary=10, counter=-10)
-          time.sleep(2)
-          time.fwd()
-          self.left(primary=10, counter=-10)
-          time.sleep(2)
-          time.fwd()
-
-          
-      else:
-        self.servo(self.MIDPOINT)
-        self.servo(1200)
-        self.servo(2000)
-        self.fwd()
+        else:
+          self.servo(self.MIDPOINT)
+          self.servo(1200)
+          right = self.read_distance()
+          self.servo(2000)
+          self.fwd()
+          left = self.read_distance()
          
 
     def safe_to_dance(self):
