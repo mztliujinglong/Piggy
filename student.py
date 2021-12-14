@@ -216,8 +216,8 @@ class Piggy(PiggyParent):
           
       else:
         self.servo(self.MIDPOINT)
-        self.servo(self.1200)
-        self.servo(self.2000)
+        self.servo(1200)
+        self.servo(2000)
         self.fwd()
 
     def detecting(self):
