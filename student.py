@@ -183,22 +183,12 @@ class Piggy(PiggyParent):
             time.sleep(2)
             self.stop()
             self.fwd()
-            time.sleep(2)
-            self.stop()
-            self.right(primary=30, counter=-40)
-            time.sleep(2)
-            self.stop()
 
           if(right > left):
-            self.right(primary=30, counter=-40)
+            self.right(primary=30, counter=-30)
             time.sleep(2)
             self.stop()
             self.fwd()
-            time.sleep(2)
-            self.stop()
-            self.left(primary=30, counter=-40)
-            time.sleep(2)
-            self.stop()
 
         else:
          self.servo(self.MIDPOINT)
