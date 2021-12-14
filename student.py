@@ -197,6 +197,7 @@ class Piggy(PiggyParent):
 
     def detect(self):
       wall_stoping_distance = 150
+      self.fwd()
       while True:
           self.stop()
           self.servo(900)
