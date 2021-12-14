@@ -200,8 +200,10 @@ class Piggy(PiggyParent):
       while True:
         if (self.read_distance() < wall_stoping_distance):
           self.stop()
+          self.servo(900)
           time.sleep(0.5)
           right = self.read_distance()
+          self.servo(2300)
           time.sleep(0.5)
           left = self.read_distance()
           if(left > right):
