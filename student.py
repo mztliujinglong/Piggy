@@ -194,6 +194,79 @@ class Piggy(PiggyParent):
          self.servo(self.MIDPOINT)
          self.fwd()
 
+    def round(self):
+      wall_stoping_distance = 150
+      if (self.read_distance() < wall_stoping_distance):
+        if(left > right):
+          self.left(primary=10, counter=-10)
+          time.sleep(2)
+          time.fwd()
+          self.right(primary=10, counter=-10)
+          time.sleep(2)
+          time.fwd()
+            
+        if(left > right):
+          self.right(primary=10, counter=-10)
+          time.sleep(2)
+          time.fwd()
+          self.left(primary=10, counter=-10)
+          time.sleep(2)
+          time.fwd()
+
+          
+      else:
+        self.servo(self.MIDPOINT)
+        self.servo(self.1200)
+        self.servo(self.2000)
+        self.fwd()
+
+    def detecting(self):
+      self.servo(1200)
+      right = self.read_distance()
+      self.servo(2000)
+      left = self.read_distance()
+       if (self.read_distance() < wall_stoping_distance):
+         
+     def round(self):
+      wall_stoping_distance = 200
+      while True:
+        if (self.read_distance() < wall_stoping_distance):
+          self.stop()
+          self.servo(1200)
+          time.sleep(0.5)
+          right = self.read_distance()
+          self.servo(2000)
+          time.sleep(0.5)
+          left = self.read_distance()
+            
+          if(left > right):
+            self.left(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.right(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+
+          if(right > left):
+            self.right(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.left(primary=30, counter=-40)
+            time.sleep(2)
+            self.stop()
+          
+        else:
+          self.servo(self.MIDPOINT)
+          self.fwd()
+
+
+
 
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
