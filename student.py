@@ -196,7 +196,7 @@ class Piggy(PiggyParent):
          self.fwd()
 
     def detect(self):
-      wall_stoping_distance = 150
+      wall_stoping_distance = 200
       while True:
         self.fwd()
         self.servo(900)
@@ -212,19 +212,19 @@ class Piggy(PiggyParent):
           if(left < wall_stoping_distance):
             self.left(primary=20, counter=-20)
             time.sleep(2)
-            time.fwd()
+            self.fwd()
             self.right(primary=20, counter=-20)
             time.sleep(2)
-            time.fwd()
+            self.fwd()
             self.servo(self.MIDPOINT)
             time.sleep(.2)
           if(right < wall_stoping_distance):
             self.right(primary=20, counter=-20)
             time.sleep(2)
-            time.fwd()
+            self.fwd()
             self.left(primary=20, counter=-20)
             time.sleep(2)
-            time.fwd()
+            self.fwd()
             self.servo(self.MIDPOINT)
             time.sleep(.2)
 
