@@ -219,13 +219,6 @@ class Piggy(PiggyParent):
         self.servo(1200)
         self.servo(2000)
         self.fwd()
-
-    def detecting(self):
-      self.servo(1200)
-      right = self.read_distance()
-      self.servo(2000)
-      left = self.read_distance()
-       if (self.read_distance() < wall_stoping_distance):
          
      def round(self):
       wall_stoping_distance = 200
