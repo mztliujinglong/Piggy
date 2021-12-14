@@ -167,7 +167,7 @@ class Piggy(PiggyParent):
           self.fwd()
 
     def maze(self):
-      wall_stoping_distance = 200
+      wall_stoping_distance = 150
       while True:
         if (self.read_distance() < wall_stoping_distance):
           self.stop()
